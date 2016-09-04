@@ -626,7 +626,7 @@ public class TypeRef {
 
         Pointer<LLVMTypeRef> array = Pointer.allocateTypedPointers(
                 LLVMTypeRef.class, types.length);
-        array.setArray(inner);
+        if(n > 0) array.setArray(inner);
 
         return array;
     }

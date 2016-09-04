@@ -1352,7 +1352,7 @@ public class Value {
 
         Pointer<LLVMValueRef> array = Pointer.allocateTypedPointers(
                 LLVMValueRef.class, values.length);
-        array.setArray(inner);
+        if(n > 0) array.setArray(inner);
 
         return array;
     }
