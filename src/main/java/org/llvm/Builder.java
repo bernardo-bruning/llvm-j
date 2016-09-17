@@ -354,6 +354,12 @@ public class Builder {
         return new Value(LLVMBuildGEP(builder, ptr.value(), indices,
                 numIndices, Pointer.pointerToCString(name)));
     }
+    
+    public Value buildGEP(Value ptr, Value indices,
+            int numIndices, String name) {
+        return new Value(LLVMBuildGEP(builder, ptr.value(), Value.internalize(new Value[]{indices}),
+                numIndices, Pointer.pointerToCString(name)));
+    }
 
     public Value buildInBoundsGEP(Value ptr, Pointer<LLVMValueRef> indices,
             int numIndices, String name) {
